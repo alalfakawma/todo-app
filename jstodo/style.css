@@ -8,7 +8,7 @@
 
 h1 {
 	text-align: center;
-	margin: 20px 0;
+	margin: 20px 0 5px 0;
 	color: #2b7be3;
 }
 
@@ -131,4 +131,24 @@ h1 {
 .edit:hover {
 	transition: all .5s;
 	background-color: #D0F170;
+}
+
+#delete-all {
+	background-color: #c9405b;
+	position: relative;
+	bottom: -1px;
+	left: 10px;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 4px;
+	visibility: hidden;
+	font-size: 12px;
+	padding: 2px 5px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+#delete-all:hover {
+	transition: all .5s;
+	background-color: #de8c9c;
 }

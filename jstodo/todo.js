@@ -3,6 +3,11 @@ var getBtn = document.getElementById('add-btn');
 var getList = document.getElementById('list');
 var getDone = document.getElementsByClassName('done');
 var getEdit = document.getElementsByClassName('edit')
+var getDeleteAll = document.getElementById('delete-all');
+
+// add delete all event handler
+
+getDeleteAll.addEventListener("click", deleteAll);
 
 // add todo when button clicked
 
@@ -33,6 +38,8 @@ function addTodo() {
 		getList.innerHTML += theTodoList;
 
 		getInput.value = '';
+
+		checkList();
 	}
 
 	// press done code if done exists
@@ -75,4 +82,29 @@ function addTodo() {
 
 	}
 
+}
+
+function checkList() {
+	if (getList.childNodes.length > 0) {
+		getDeleteAll.style.visibility = "visible";
+	} else if (getList.childNodes.length <= 0) {
+		console.log('im done');
+		getDeleteAll.style.visibility = "hidden";
+	}
+}
+
+function deleteAll() {
+	var getTheList = document.getElementsByClassName('thelist');
+
+	for (var i = 0; i < getTheList.length; i++) {
+		getTheList[i].className += ' delete';
+
+		thelisty(getTheList[i]);
+
+		function thelisty(thelist) {
+			setTimeout(function () {
+				thelist.remove();
+			}, 500);
+		}
+	}
 }
