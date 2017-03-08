@@ -31,11 +31,15 @@ function addTodo() {
 		var theDay = theTime.getDay();
 		var theHour = theTime.getHours();
 		var theMinute = theTime.getMinutes();
-		var theTimeOfDay = 'on ' + theHour + ':' + theMinute;
+		var theDate = theTime.getDate();
+		var theMonth = theTime.getMonth();
+		var theYear = theTime.getFullYear();
+		var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
+		var theDateLine = theDate + '/' + theMonth + '/' + theYear
 		var inputValue = getInput.value;
 		var createDiv = document.createElement('div');
 		createDiv.setAttribute('class', 'thelist');
-		createDiv.innerHTML += "<p class='thevalue'>" + getInput.value + "</p>" + "<span class='edit'>Edit</span>" + "<span class='done'>Done</span>" + "<span class='date'>" + theTimeOfDay + "</span>";
+		createDiv.innerHTML += "<p class='thevalue'>" + getInput.value + "</p>" + "<span class='edit'>Edit</span>" + "<span class='done'>Done</span>" + "<span class='date'>" + theDateLine + '<br>' + theTimeOfDay + "</span>";
 
 		getList.insertBefore(createDiv, getList.firstChild);
 
@@ -86,6 +90,8 @@ function addTodo() {
 	}
 }
 
+// check if list has items
+
 function checkList() {
 	if (getList.childNodes.length > 0) {
 		getDeleteAll.style.visibility = "visible";
@@ -94,8 +100,12 @@ function checkList() {
 	}
 }
 
+// delete all items from list
+
 function deleteAll() {
 	var getTheList = document.getElementsByClassName('thelist');
+
+	// run through all the list items and give em a class of delete
 
 	for (var i = 0; i < getTheList.length; i++) {
 		getTheList[i].className += ' delete';

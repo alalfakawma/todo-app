@@ -15,8 +15,7 @@ h1 {
 #container {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 20px;
-	width: 400px;
-	height: 200px;
+	max-width: 400px;
 	padding: 10px 0;
 	max-height: 100%;
 	margin: 100px auto;
@@ -105,12 +104,11 @@ h1 {
 }
 
 .date {
-	top: 0;
+	top: 3px;
 	height: 28px;
-	line-height: 28px;
 	font-size: 10px;
 	position: absolute;
-	right: -45px;
+	right: -50px;
 	color: #000;
 }
 
@@ -151,4 +149,36 @@ h1 {
 #delete-all:hover {
 	transition: all .5s;
 	background-color: #de8c9c;
+}
+
+@media screen and (max-width: 360px) {
+	#container {
+		padding: 10px 20px 10px 20px;
+		margin: 0;
+	}
+
+	#input input {
+		width: 80%;
+	}
+
+	h1 {
+		font-size: 170%;
+	}
+
+	.thelist {
+		font-size: 12px;
+		width: 80%;
+	}
+
+	.done {
+		line-height: 23px;
+		height: 23px;
+	}
+
+	.edit {
+		line-height: 23px;
+		height: 23px;
+		right: 39px;
+	}
+
 }
