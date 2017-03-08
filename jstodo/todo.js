@@ -56,6 +56,7 @@ function addTodo() {
 			this.parentElement.className += ' delete';
 			setTimeout(function () {
 				theElement.parentElement.remove();
+				checkList();
 			}, 500);
 			
 		}
@@ -78,6 +79,8 @@ function addTodo() {
 
 			this.parentElement.remove();	
 
+			checkList();
+
 		}
 
 	}
@@ -88,7 +91,6 @@ function checkList() {
 	if (getList.childNodes.length > 0) {
 		getDeleteAll.style.visibility = "visible";
 	} else if (getList.childNodes.length <= 0) {
-		console.log('im done');
 		getDeleteAll.style.visibility = "hidden";
 	}
 }
@@ -104,6 +106,7 @@ function deleteAll() {
 		function thelisty(thelist) {
 			setTimeout(function () {
 				thelist.remove();
+				checkList();
 			}, 500);
 		}
 	}
