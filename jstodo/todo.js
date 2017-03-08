@@ -33,9 +33,11 @@ function addTodo() {
 		var theMinute = theTime.getMinutes();
 		var theTimeOfDay = 'on ' + theHour + ':' + theMinute;
 		var inputValue = getInput.value;
-		var theTodoList = "<div class='thelist'>" + "<p class='thevalue'>" + getInput.value + "</p>" + "<span class='edit'>Edit</span>" + "<span class='done'>Done</span>" + "<span class='date'>" + theTimeOfDay + "</span>" + "</div>";
+		var createDiv = document.createElement('div');
+		createDiv.setAttribute('class', 'thelist');
+		createDiv.innerHTML += "<p class='thevalue'>" + getInput.value + "</p>" + "<span class='edit'>Edit</span>" + "<span class='done'>Done</span>" + "<span class='date'>" + theTimeOfDay + "</span>";
 
-		getList.innerHTML += theTodoList;
+		getList.insertBefore(createDiv, getList.firstChild);
 
 		getInput.value = '';
 
@@ -57,8 +59,7 @@ function addTodo() {
 			setTimeout(function () {
 				theElement.parentElement.remove();
 				checkList();
-			}, 500);
-			
+			}, 500);	
 		}
 	}
 
@@ -82,9 +83,7 @@ function addTodo() {
 			checkList();
 
 		}
-
 	}
-
 }
 
 function checkList() {
