@@ -1,0 +1,134 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	list-style-type: none;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0;
+	color: #2b7be3;
+}
+
+#container {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	width: 400px;
+	height: 200px;
+	padding: 10px 0;
+	max-height: 100%;
+	margin: 100px auto;
+}
+
+#input {
+	text-align: center;
+}
+
+#input input {
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	padding: 5px;
+	outline: none;
+	color: #1f1f1f;
+	border: 1px solid #2b7be3;
+	width: 85%;
+}
+
+#input span {
+	padding: 5px;
+	border: 1px solid #2b7be3;
+	background-color: #2b7be3;
+	cursor: pointer;
+	color: #fff;
+	width: 30%;
+}
+
+#input span:hover {
+	transition: all .5s;
+	background-color: #73a8ed;
+	border-color: #73a8ed;
+}
+
+.thelist {
+	background-color: #73a8ed;
+	width: 85%;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	margin: 10px 0 10px 4px;
+	font-size: 16px;
+	position: relative;
+}
+
+.thelist::after {
+	content: ' ';
+	width: 200px;
+	margin: 5px 0;
+	display: block;
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #dfdfdf;
+	height: 1px;
+}
+
+.thelist:last-of-type::after {
+	display: none;
+}
+
+.done {
+	position: absolute;
+	top: 0;
+	right: 0;
+	line-height: 28px;
+	background-color: #c9405b;
+	height: 28px;
+	padding: 0 5px;
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	cursor: pointer;
+}
+
+.done:hover {
+	transition: all .5s;
+	background-color: #de8c9c;
+}
+
+.delete {
+	transition: all .5s;
+	transform: translateX(-100%);
+	opacity: 0;
+}
+
+.date {
+	top: 0;
+	height: 28px;
+	line-height: 28px;
+	font-size: 10px;
+	position: absolute;
+	right: -45px;
+	color: #000;
+}
+
+.edit {
+	position: absolute;
+	top: 0;
+	right: 49px;
+	line-height: 28px;
+	background-color: #A6CC38;
+	height: 28px;
+	padding: 0 5px;
+	border-radius: 5px;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	cursor: pointer;
+}
+
+.edit:hover {
+	transition: all .5s;
+	background-color: #D0F170;
+}
