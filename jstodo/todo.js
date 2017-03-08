@@ -4,6 +4,7 @@ var getList = document.getElementById('list');
 var getDone = document.getElementsByClassName('done');
 var getEdit = document.getElementsByClassName('edit')
 var getDeleteAll = document.getElementById('delete-all');
+// var theListPara = document.getElementsByClassName('thevalue');
 
 // add delete all event handler
 
@@ -28,7 +29,6 @@ getInput.addEventListener('keydown', function(e) {
 function addTodo() {
 	if (getInput.value.length > 0) {
 		var theTime = new Date();
-		var theDay = theTime.getDay();
 		var theHour = theTime.getHours();
 		var theMinute = theTime.getMinutes();
 		var theDate = theTime.getDate();

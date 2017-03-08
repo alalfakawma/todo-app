@@ -74,6 +74,12 @@ h1 {
 	height: 1px;
 }
 
+.thelist .thevalue {
+	padding-right: 80px;
+	word-wrap: break-word;
+	cursor: pointer;
+}
+
 .thelist:last-of-type::after {
 	display: none;
 }
@@ -110,6 +116,7 @@ h1 {
 	position: absolute;
 	right: -50px;
 	color: #000;
+	text-align: center;
 }
 
 .edit {
@@ -179,6 +186,10 @@ h1 {
 		line-height: 23px;
 		height: 23px;
 		right: 39px;
+	}
+
+	.thelist p {
+		padding-right: 65px;
 	}
 
 }
