@@ -12,6 +12,32 @@ var getTheList = document.getElementsByClassName('thelist');
 
 var todoItems = (localStorage.getItem('todoItems')) ? JSON.parse(localStorage.getItem('todoItems')) : [];
 
+reAdd();
+
+// reAdd the todos
+
+function reAdd() {
+	for (var i = 0; i < todoItems.length; i++) {
+		var theTime = new Date();
+		var theHour = theTime.getHours();
+		var theMinute = theTime.getMinutes();
+		var theDate = theTime.getDate();
+		var theMonth = theTime.getMonth();
+		var theYear = theTime.getFullYear();
+		var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
+		var theDateLine = theDate + '/' + theMonth + '/' + theYear
+		var inputValue = getInput.value;
+		var createDiv = document.createElement('div');
+		createDiv.setAttribute('class', 'thelist');
+		createDiv.className += ' normal';
+		createDiv.innerHTML += "<p class='thevalue'>" + todoItems[i] + "</p>" + "<span class='edit'>Edit</span>" + "<span class='done'>Done</span>" + "<span class='date'>" + theDateLine + '<br>' + theTimeOfDay + "</span>";
+		getList.insertBefore(createDiv, getList.firstChild);
+
+		checkList();
+		importanto();
+	}
+}
+
 // add delete all event handler
 
 getDeleteAll.addEventListener("click", deleteAll);
@@ -111,6 +137,12 @@ function addTodo() {
 	}
 
 	// press done code if done exists
+
+	importanto();
+
+}
+
+function importanto() {
 
 	if (getDone[0]) {
 		var theDone = document.querySelectorAll('.thelist span')[1];
