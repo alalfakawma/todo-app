@@ -28,9 +28,19 @@ getInput.addEventListener('keydown', function(e) {
 // add todo function
 
 function addTodo() {
+	var theError = "getErrorTodo.style.visibility = 'visible'";
+
+	if (getInput.value == '' && theError) {
+		getErrorTodo.style.visibility = 'hidden';
+
+		return;
+	}
+
 	if (getInput.value.length > 0) {
 
 		getErrorTodo.style.visibility = 'hidden';
+
+		// compare input values and already added values of the list
 
 		for (var i = 0; i < theListPara.length; i++) {
 			var theNeededValue = theListPara[i].innerText;
@@ -69,6 +79,7 @@ function addTodo() {
 		}
 
 		checkList();
+
 	}
 
 	// press done code if done exists
@@ -86,38 +97,41 @@ function addTodo() {
 			setTimeout(function () {
 				theElement.parentElement.remove();
 				checkList();
-			}, 500);	
+			}, 500);
 		}
 	}
 
 	// press edit code if edit exists
 
 	if (getEdit[0]) {
-		for (var i = 0; i < getEdit.length; i++) {
-			getEdit[i].addEventListener("click", editTodo);
-		}
-		
-		function editTodo() {
 
-			var theThis = this.parentElement.childNodes[0].innerHTML;
-			
-			getInput.value = theThis;
-			getInput.select();
-			getInput.setSelectionRange(0, getInput.value.length);
+		var theEdit = document.querySelector('.thelist span');
 
-			this.parentElement.remove();
+		theEdit.addEventListener("click", function(e) {
+		    if(e.target && e.target.classList.contains('edit')) {
 
-			if (getInput.value.length > 0) {
-				for (var i = 0; i < getEdit.length; i++) {
-					getEdit[i].className += ' disabled';
+				var theThis = this.parentElement.childNodes[0].innerHTML;
+				
+				getInput.value = theThis;
+				getInput.select();
+				getInput.setSelectionRange(0, getInput.value.length);
+
+				this.parentElement.remove();
+
+				if (getInput.value.length > 0) {
+					for (var i = 0; i < getEdit.length; i++) {
+						getEdit[i].className += ' disabled';
+					}
 				}
-			}
-			checkList();
-		}
+				checkList();
+			};
+		});
 	}
 
 	if (theListPara[0]) {
-		document.querySelector('.thelist p').addEventListener("click", function(e) {
+		var thelp = document.querySelector('.thelist p');
+
+		thelp.addEventListener("click", function(e) {
 		    if(e.target && e.target.classList.contains('thevalue')) {
 		        if (this.parentElement.classList.contains('normal')) {
 		            this.parentElement.classList.toggle('high');
@@ -140,6 +154,7 @@ function checkList() {
 // delete all items from list
 
 function deleteAll() {
+
 	var getTheList = document.getElementsByClassName('thelist');
 
 	// run through all the list items and give em a class of delete
