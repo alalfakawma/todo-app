@@ -6,6 +6,11 @@ var getEdit = document.getElementsByClassName('edit')
 var getDeleteAll = document.getElementById('delete-all');
 var theListPara = document.getElementsByClassName('thevalue');
 var getErrorTodo = document.getElementById('same-todo');
+var getTheList = document.getElementsByClassName('thelist');
+
+// init json array
+
+var todoItems = (localStorage.getItem('todoItems')) ? JSON.parse(localStorage.getItem('todoItems')) : [];
 
 // add delete all event handler
 
@@ -26,6 +31,16 @@ getInput.addEventListener('keydown', function(e) {
 	    }
 	}
 });
+
+function updateStorage() {
+	if (todoItems.length > 0) {
+		var jsonString = JSON.stringify(todoItems);
+
+		localStorage.setItem('todoItems', jsonString);
+	} else {
+		localStorage.removeItem('todoItems');
+	}
+}
 
 // add todo function
 
@@ -77,6 +92,12 @@ function addTodo() {
 
 		getList.insertBefore(createDiv, getList.firstChild);
 
+		// push item to array
+
+		todoItems.push(inputValue);
+
+		updateStorage();
+
 		getInput.value = '';
 
 		if (getInput.value.length <= 0) {
@@ -98,6 +119,14 @@ function addTodo() {
 		    if(e.target && e.target.classList.contains('done')) {
 
 				var theElement = this;
+
+				// delete item from array
+
+				var theIndex = todoItems.indexOf(this.parentElement.childNodes[0].innerHTML);
+			
+				todoItems.splice(theIndex, 1);
+
+				updateStorage();
 
 				this.parentElement.className += ' delete';
 				setTimeout(function () {
@@ -122,6 +151,14 @@ function addTodo() {
 				getInput.value = theThis;
 				getInput.select();
 				getInput.setSelectionRange(0, getInput.value.length);
+
+				// delete items from array
+
+				var theIndex = todoItems.indexOf(this.parentElement.childNodes[0].innerHTML);
+			
+				todoItems.splice(theIndex, 1);
+
+				updateStorage();
 
 				this.parentElement.remove();
 
@@ -161,8 +198,6 @@ function checkList() {
 // delete all items from list
 
 function deleteAll() {
-
-	var getTheList = document.getElementsByClassName('thelist');
 
 	// run through all the list items and give em a class of delete
 
