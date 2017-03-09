@@ -7,6 +7,14 @@ var getDeleteAll = document.getElementById('delete-all');
 var theListPara = document.getElementsByClassName('thevalue');
 var getErrorTodo = document.getElementById('same-todo');
 var getTheList = document.getElementsByClassName('thelist');
+var theTime = new Date();
+var theHour = theTime.getHours();
+var theMinute = theTime.getMinutes();
+var theDate = theTime.getDate();
+var theMonth = theTime.getMonth();
+var theYear = theTime.getFullYear();
+var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
+var theDateLine = theDate + '/' + theMonth + '/' + theYear
 
 // init json array
 
@@ -18,14 +26,6 @@ reAdd();
 
 function reAdd() {
 	for (var i = 0; i < todoItems.length; i++) {
-		var theTime = new Date();
-		var theHour = theTime.getHours();
-		var theMinute = theTime.getMinutes();
-		var theDate = theTime.getDate();
-		var theMonth = theTime.getMonth();
-		var theYear = theTime.getFullYear();
-		var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
-		var theDateLine = theDate + '/' + theMonth + '/' + theYear
 		var inputValue = getInput.value;
 		var createDiv = document.createElement('div');
 		createDiv.setAttribute('class', 'thelist');
@@ -102,14 +102,6 @@ function addTodo() {
 			}
 		}
 
-		var theTime = new Date();
-		var theHour = theTime.getHours();
-		var theMinute = theTime.getMinutes();
-		var theDate = theTime.getDate();
-		var theMonth = theTime.getMonth();
-		var theYear = theTime.getFullYear();
-		var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
-		var theDateLine = theDate + '/' + theMonth + '/' + theYear
 		var inputValue = getInput.value;
 		var createDiv = document.createElement('div');
 		createDiv.setAttribute('class', 'thelist');
@@ -235,6 +227,8 @@ function deleteAll() {
 
 	for (var i = 0; i < getTheList.length; i++) {
 		getTheList[i].className += ' delete';
+
+		localStorage.removeItem('todoItems');
 
 		thelisty(getTheList[i]);
 
