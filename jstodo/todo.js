@@ -55,6 +55,7 @@ function addTodo() {
 		var inputValue = getInput.value;
 		var createDiv = document.createElement('div');
 		createDiv.setAttribute('class', 'thelist');
+		createDiv.className += ' normal';
 		createDiv.innerHTML += "<p class='thevalue'>" + getInput.value + "</p>" + "<span class='edit'>Edit</span>" + "<span class='done'>Done</span>" + "<span class='date'>" + theDateLine + '<br>' + theTimeOfDay + "</span>";
 
 		getList.insertBefore(createDiv, getList.firstChild);
@@ -113,6 +114,16 @@ function addTodo() {
 			}
 			checkList();
 		}
+	}
+
+	if (theListPara[0]) {
+		document.querySelector('.thelist p').addEventListener("click", function(e) {
+		    if(e.target && e.target.classList.contains('thevalue')) {
+		        if (this.parentElement.classList.contains('normal')) {
+		            this.parentElement.classList.toggle('high');
+		        }
+		    }
+		});
 	}
 }
 
