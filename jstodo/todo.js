@@ -87,20 +87,20 @@ function addTodo() {
 	// press done code if done exists
 
 	if (getDone[0]) {
-		for (var i = 0; i < getDone.length; i++) {
-			getDone[i].addEventListener("click", deleteTodo);
-		}
+		var theDone = document.querySelectorAll('.thelist span')[1];
 
-		function deleteTodo() {
+		theDone.addEventListener("click", function(e) {
+		    if(e.target && e.target.classList.contains('done')) {
 
-			var theElement = this;
+				var theElement = this;
 
-			this.parentElement.className += ' delete';
-			setTimeout(function () {
-				theElement.parentElement.remove();
-				checkList();
-			}, 500);
-		}
+				this.parentElement.className += ' delete';
+				setTimeout(function () {
+					theElement.parentElement.remove();
+					checkList();
+				}, 500);
+			}
+		});
 	}
 
 	// press edit code if edit exists
