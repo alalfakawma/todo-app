@@ -4,7 +4,8 @@ var getList = document.getElementById('list');
 var getDone = document.getElementsByClassName('done');
 var getEdit = document.getElementsByClassName('edit')
 var getDeleteAll = document.getElementById('delete-all');
-// var theListPara = document.getElementsByClassName('thevalue');
+var theListPara = document.getElementsByClassName('thevalue');
+var getErrorTodo = document.getElementById('same-todo');
 
 // add delete all event handler
 
@@ -28,6 +29,21 @@ getInput.addEventListener('keydown', function(e) {
 
 function addTodo() {
 	if (getInput.value.length > 0) {
+
+		getErrorTodo.style.visibility = 'hidden';
+
+		for (var i = 0; i < theListPara.length; i++) {
+			var theNeededValue = theListPara[i].innerText;
+
+			if (getInput.value === theNeededValue) {
+				getErrorTodo.style.visibility = 'visible';
+				getInput.select();
+				getInput.setSelectionRange(0, getInput.value.length);
+
+				return;
+			}
+		}
+
 		var theTime = new Date();
 		var theHour = theTime.getHours();
 		var theMinute = theTime.getMinutes();
@@ -95,9 +111,7 @@ function addTodo() {
 					getEdit[i].className += ' disabled';
 				}
 			}
-
 			checkList();
-
 		}
 	}
 }

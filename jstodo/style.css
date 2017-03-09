@@ -164,6 +164,14 @@ h1 {
 	background-color: #de8c9c;
 }
 
+#same-todo {
+	display: inline-block;
+	margin-left: 155px;
+	font-size: 10px;
+	font-weight: 700;
+	visibility: hidden;
+}
+
 @media screen and (max-width: 360px) {
 	#container {
 		padding: 10px 20px 10px 20px;
