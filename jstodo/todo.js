@@ -18,7 +18,9 @@ getBtn.addEventListener("click", addTodo);
 // Press enter for adding todo only if todo has text in it
 
 getInput.addEventListener('keydown', function(e) {
-	if (getInput.value.length > 0) {
+	var theInput = "getInput.value = ''"
+
+	if (getInput.value.length > 0 || theInput) {
 	    if (e.keyCode == 13) {
 	    	addTodo();
 	    }

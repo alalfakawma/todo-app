@@ -213,4 +213,12 @@ h1 {
 		padding-right: 65px;
 	}
 
+	#delete-all {
+		bottom: -24px;
+	}
+
+	#same-todo {
+		margin-left: 145px;
+	}
+
 }
