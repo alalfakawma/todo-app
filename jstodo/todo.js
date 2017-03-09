@@ -45,6 +45,12 @@ function addTodo() {
 
 		getInput.value = '';
 
+		if (getInput.value.length <= 0) {
+			for (var i = 0; i < getEdit.length; i++) {
+				getEdit[i].classList.remove('disabled');
+			}
+		}
+
 		checkList();
 	}
 
@@ -82,7 +88,13 @@ function addTodo() {
 			getInput.select();
 			getInput.setSelectionRange(0, getInput.value.length);
 
-			this.parentElement.remove();	
+			this.parentElement.remove();
+
+			if (getInput.value.length > 0) {
+				for (var i = 0; i < getEdit.length; i++) {
+					getEdit[i].className += ' disabled';
+				}
+			}
 
 			checkList();
 
