@@ -35,6 +35,11 @@ function addTodo() {
 	if (getInput.value == '' && theError) {
 		getErrorTodo.style.visibility = 'hidden';
 
+		var editBtn = document.getElementsByClassName('edit');
+		for (var i = 0; i < editBtn.length; i++) {
+			editBtn[i].classList.remove('disabled');
+		}
+
 		return;
 	}
 
