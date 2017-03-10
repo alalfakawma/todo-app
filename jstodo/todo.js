@@ -252,6 +252,14 @@ function deleteAll() {
 		localStorage.removeItem('todoItems');
 		localStorage.removeItem('time');
 
+		// empty arrays
+
+		todoItems = [];
+		postTime = {
+			time: [],
+			date: []
+		};
+
 		thelisty(getTheList[i]);
 
 		function thelisty(thelist) {
