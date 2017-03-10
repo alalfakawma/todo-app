@@ -7,18 +7,17 @@ var getDeleteAll = document.getElementById('delete-all');
 var theListPara = document.getElementsByClassName('thevalue');
 var getErrorTodo = document.getElementById('same-todo');
 var getTheList = document.getElementsByClassName('thelist');
-var theTime = new Date();
-var theHour = theTime.getHours();
-var theMinute = theTime.getMinutes();
-var theDate = theTime.getDate();
-var theMonth = theTime.getMonth();
-var theYear = theTime.getFullYear();
-var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
-var theDateLine = theDate + '/' + theMonth + '/' + theYear
 
 // init json array
 
 var todoItems = (localStorage.getItem('todoItems')) ? JSON.parse(localStorage.getItem('todoItems')) : [];
+
+var postTime = (localStorage.getItem('time')) ? JSON.parse(localStorage.getItem('time')) : {
+	time: [],
+	date: []
+};
+
+// add stored todo's
 
 reAdd();
 
@@ -26,6 +25,9 @@ reAdd();
 
 function reAdd() {
 	for (var i = 0; i < todoItems.length; i++) {
+
+		var theTimeOfDay = postTime.time[i];
+		var theDateLine = postTime.date[i];
 		var inputValue = getInput.value;
 		var createDiv = document.createElement('div');
 		createDiv.setAttribute('class', 'thelist');
@@ -61,10 +63,13 @@ getInput.addEventListener('keydown', function(e) {
 function updateStorage() {
 	if (todoItems.length > 0) {
 		var jsonString = JSON.stringify(todoItems);
+		var dateString = JSON.stringify(postTime);
 
+		localStorage.setItem('time', dateString);
 		localStorage.setItem('todoItems', jsonString);
 	} else {
 		localStorage.removeItem('todoItems');
+		localStorage.removeItem('time');
 	}
 }
 
@@ -102,6 +107,14 @@ function addTodo() {
 			}
 		}
 
+		var theTime = new Date();
+		var theHour = theTime.getHours();
+		var theMinute = theTime.getMinutes();
+		var theDate = theTime.getDate();
+		var theMonth = theTime.getMonth();
+		var theYear = theTime.getFullYear();
+		var theTimeOfDay = 'at ' + theHour + ':' + theMinute;
+		var theDateLine = theDate + '/' + theMonth + '/' + theYear
 		var inputValue = getInput.value;
 		var createDiv = document.createElement('div');
 		createDiv.setAttribute('class', 'thelist');
@@ -113,6 +126,10 @@ function addTodo() {
 		// push item to array
 
 		todoItems.push(inputValue);
+		postTime.time.push(theTimeOfDay);
+		postTime.date.push(theDateLine);
+
+		// update the storage
 
 		updateStorage();
 
@@ -149,6 +166,8 @@ function importanto() {
 				var theIndex = todoItems.indexOf(this.parentElement.childNodes[0].innerHTML);
 			
 				todoItems.splice(theIndex, 1);
+				postTime.time.splice(theIndex, 1);
+				postTime.date.splice(theIndex, 1);
 
 				updateStorage();
 
@@ -181,6 +200,8 @@ function importanto() {
 				var theIndex = todoItems.indexOf(this.parentElement.childNodes[0].innerHTML);
 			
 				todoItems.splice(theIndex, 1);
+				postTime.time.splice(theIndex, 1);
+				postTime.date.splice(theIndex, 1);
 
 				updateStorage();
 
@@ -229,6 +250,7 @@ function deleteAll() {
 		getTheList[i].className += ' delete';
 
 		localStorage.removeItem('todoItems');
+		localStorage.removeItem('time');
 
 		thelisty(getTheList[i]);
 
