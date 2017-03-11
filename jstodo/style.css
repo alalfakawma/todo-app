@@ -182,9 +182,10 @@ h1 {
 	visibility: hidden;
 }
 
-@media screen and (min-width: 320px) and (max-width: 420px) and (orientation: portrait) {
+@media screen and (min-width: 320px) and (max-width: 380px) and (orientation: portrait) {
+
 	#container {
-		padding: 10px 20px 10px 20px;
+		padding: 0;
 		margin: 0;
 	}
 
@@ -196,9 +197,13 @@ h1 {
 		font-size: 170%;
 	}
 
+	#list {
+		max-width: 100%;
+	}
+
 	.thelist {
 		font-size: 12px;
-		width: 80%;
+		max-width: 100%;
 	}
 
 	.done {
@@ -217,11 +222,11 @@ h1 {
 	}
 
 	#delete-all {
-		bottom: -2.1em;
+		bottom: 0;
 	}
 
 	#same-todo {
-		margin-left: 145px;
+		margin-left: 125px;
 	}
 
 }
