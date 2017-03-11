@@ -19,5 +19,6 @@
   </author>
 
   <preference name="EnableViewportScale" value="false" />
+  <preference name="android-windowSoftInputMode" value="adjustPan" />
 
 </widget>
