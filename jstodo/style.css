@@ -12,7 +12,7 @@ body {
 
 h1 {
 	text-align: center;
-	margin: 20px 0 5px 0;
+	margin: 5px 0 5px 0;
 	color: #2b7be3;
 }
 
@@ -21,8 +21,8 @@ h1 {
 	font-size: 20px;
 	width: 100%;
 	max-width: 100%;
-	padding: 10px 0;
-	margin: 100px auto;
+	padding: 0 10px;
+	margin: 0 auto;
 }
 
 #input {
@@ -125,10 +125,10 @@ h1 {
 .edit {
 	position: absolute;
 	top: 0;
-	right: 49px;
 	line-height: 1.75em;
-	background-color: #A6CC38;
 	height: 1.75em;
+	right: 3em;
+	background-color: #A6CC38;
 	padding: 0 5px;
 	border-radius: 5px;
 	border-top-right-radius: 0;
@@ -176,7 +176,7 @@ h1 {
 
 #same-todo {
 	display: inline-block;
-	margin-left: 155px;
+	margin-left: 1em;
 	font-size: 10px;
 	font-weight: 700;
 	visibility: hidden;
@@ -207,27 +207,12 @@ h1 {
 		max-width: 100%;
 	}
 
-	.done {
-		line-height: 1.9em;
-		height: 1.9em;
-	}
-
-	.edit {
-		line-height: 1.9em;
-		height: 1.9em;
-		right: 3.2em;
-	}
-
 	.thelist p {
 		padding-right: 65px;
 	}
 
 	#delete-all {
 		bottom: 0;
-	}
-
-	#same-todo {
-		margin-left: 125px;
 	}
 
 }
