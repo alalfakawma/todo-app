@@ -7,12 +7,12 @@
 }
 
 body {
-	background: #0b3238;
+	background: #1f1f1f;
 }
 
 h1 {
 	text-align: center;
-	margin: 5px 0 5px 0;
+	margin: 5px 0 20px 0;
 	color: #2b7be3;
 }
 
@@ -58,6 +58,7 @@ h1 {
 
 .thelist {
 	width: 85%;
+	height: 1.75em;
 	color: #fff;
 	padding: 5px 10px;
 	border-radius: 5px;
@@ -178,6 +179,9 @@ h1 {
 }
 
 #same-todo {
+	position: absolute;
+	bottom: 105%;
+	left: 90px;
 	display: inline-block;
 	margin-left: 1em;
 	font-size: 10px;
