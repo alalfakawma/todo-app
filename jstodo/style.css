@@ -182,7 +182,7 @@ h1 {
 	visibility: hidden;
 }
 
-@media screen and (max-width: 360px) and (orientation: portrait) {
+@media screen and (max-width: 420px) and (orientation: portrait) {
 	#container {
 		padding: 10px 20px 10px 20px;
 		margin: 0;
