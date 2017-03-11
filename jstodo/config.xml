@@ -21,4 +21,6 @@
   <preference name="EnableViewportScale" value="false" />
   <preference name="android-windowSoftInputMode" value="adjustPan" />
 
+  <icon src="icon.png" width="50" height="50" />
+
 </widget>
