@@ -19,7 +19,7 @@ h1 {
 #container {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 20px;
-	max-width: 400px;
+	max-width: 100%;
 	padding: 10px 0;
 	max-height: 100%;
 	margin: 100px auto;
@@ -64,9 +64,9 @@ h1 {
 	position: relative;
 }
 
-/*.thelist::after {
+.thelist::after {
 	content: ' ';
-	width: 200px;
+	width: 50%;
 	margin: 5px 0;
 	display: block;
 	position: absolute;
@@ -75,7 +75,7 @@ h1 {
 	transform: translateX(-50%);
 	background-color: #dfdfdf;
 	height: 1px;
-}*/
+}
 
 .thelist .thevalue {
 	margin-right: 80px;
