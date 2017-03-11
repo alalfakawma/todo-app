@@ -19,9 +19,9 @@ h1 {
 #container {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 20px;
+	width: 100%;
 	max-width: 100%;
 	padding: 10px 0;
-	max-height: 100%;
 	margin: 100px auto;
 }
 
@@ -45,7 +45,7 @@ h1 {
 	background-color: #2b7be3;
 	cursor: pointer;
 	color: #fff;
-	width: 30%;
+	width: 25%;
 }
 
 #input span:hover {
