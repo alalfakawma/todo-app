@@ -64,7 +64,7 @@ h1 {
 	position: relative;
 }
 
-.thelist::after {
+/*.thelist::after {
 	content: ' ';
 	width: 50%;
 	margin: 5px 0;
@@ -75,7 +75,7 @@ h1 {
 	transform: translateX(-50%);
 	background-color: #dfdfdf;
 	height: 1px;
-}
+}*/
 
 .thelist .thevalue {
 	margin-right: 80px;
@@ -91,9 +91,9 @@ h1 {
 	position: absolute;
 	top: 0;
 	right: 0;
-	line-height: 28px;
+	line-height: 1.75em;
 	background-color: #c9405b;
-	height: 28px;
+	height: 1.75em;
 	padding: 0 5px;
 	border-radius: 5px;
 	border-top-left-radius: 0;
@@ -114,7 +114,7 @@ h1 {
 
 .date {
 	top: 3px;
-	height: 28px;
+	height: 1.75em;
 	font-size: 9px;
 	position: absolute;
 	right: -50px;
@@ -126,9 +126,9 @@ h1 {
 	position: absolute;
 	top: 0;
 	right: 49px;
-	line-height: 28px;
+	line-height: 1.75em;
 	background-color: #A6CC38;
-	height: 28px;
+	height: 1.75em;
 	padding: 0 5px;
 	border-radius: 5px;
 	border-top-right-radius: 0;
@@ -182,7 +182,7 @@ h1 {
 	visibility: hidden;
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 360px) and (orientation: portrait) {
 	#container {
 		padding: 10px 20px 10px 20px;
 		margin: 0;
@@ -202,14 +202,14 @@ h1 {
 	}
 
 	.done {
-		line-height: 23px;
-		height: 23px;
+		line-height: 1.9em;
+		height: 1.9em;
 	}
 
 	.edit {
-		line-height: 23px;
-		height: 23px;
-		right: 39px;
+		line-height: 1.9em;
+		height: 1.9em;
+		right: 3.2em;
 	}
 
 	.thelist p {
