@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<preference name="EnableViewportScale" value="false" />
-
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "com.phonegap.example"
@@ -19,5 +17,7 @@
   <author href="https://alalfakawma.in" email="alalfakawma@gmail.com">
       Aseem Lalfakawma
   </author>
+
+  <preference name="EnableViewportScale" value="false" />
 
 </widget>
